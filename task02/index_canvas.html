@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body onload="draw();">
+	<canvas id="canId" width="1000" height="500"></canvas>
+
+	<div>
+		<p>Я немного увлекся, но если Вы так сильно хотите увидеть <em>целого</em> человечка или Вам просто не понравился мой смайлик, то жмякайте ниже(</p>
+		<button id="showButton" onclick="showTree();">Жмякать Тут</button>
+	</div>
+
+	<canvas id="canTree" width="300" height="300"></canvas>
+
+	<script type="application/javascript">
+		function drawSin(startY,ctx){
+			ctx.beginPath();
+			var startX = 1000;
+			var radius = 25;
+			var step = radius*2;
+			for (var i = 0; i <= 20; i++) {
+				if (i%2==0) {
+					ctx.arc(startX,startY,radius,0,Math.PI,true);
+					startX=startX-step;
+				} else {
+					ctx.arc(startX,startY,radius,0,Math.PI,false);
+					startX=startX-step;
+				}					
+			}
+			ctx.stroke();
+		}
+		function draw(){
+			var canvas = document.getElementById('canId');
+			if (canvas.getContext){
+				var ctx = canvas.getContext('2d');
+				var startY = 100;
+				// for (var i = 0; i < 7; i++) {
+				// 	drawSin(startY,ctx);
+				// 	startY=startY+50;
+				// }
+
+			 	ctx.beginPath();
+			 	ctx.arc(300,250,100,0,Math.PI * 2,true);
+			 	ctx.moveTo(500,250)
+			 	ctx.arc(400,250,100,0,Math.PI * 2,true);
+			 	ctx.fillStyle = "rgb(212, 227, 43)"
+			 	ctx.fill();
+
+			 	ctx.beginPath();
+			 	ctx.arc(300,250,100,0,Math.PI * 2,true);
+			 	ctx.moveTo(500,250)
+			 	ctx.arc(400,250,100,0,Math.PI * 2,true);
+			 	ctx.stroke();
+				
+			 	startX = 275;
+			 	startY = 200;
+			 	for(var i = 0; i < 3; i++){
+			 		ctx.beginPath();
+				 	ctx.arc(startX,startY,7,0,Math.PI * 2,true);
+				 	ctx.fillStyle = "black"
+				 	ctx.fill();
+				 	ctx.fillRect(startX-7,startY,14,15)
+				 	ctx.beginPath();
+				 	ctx.arc(startX,startY+15,7,0,Math.PI * 2,true);
+				 	ctx.fillStyle = "black"
+				 	ctx.fill();
+				 	startX=startX+75;
+			 	}
+
+			 	
+			 	ctx.beginPath();
+			   ctx.moveTo(245, 275);
+			   ctx.bezierCurveTo(275,230,320,260,350,275)
+			   ctx.moveTo(350,275);
+			   ctx.bezierCurveTo(385,290,425,315,455,275)
+			   ctx.stroke();
+
+
+			}
+		}
+
+		function showTree(){
+			drawTree();
+			var button = document.getElementById('showButton');
+			button.innerHTML = "Смотрите ниже ☟"
+
+		}
+
+		function drawTree(){
+			var canvas = document.getElementById('canTree');
+			if (canvas.getContext){
+				var ctx = canvas.getContext('2d');
+				ctx.beginPath();
+				ctx.arc(150,140,10,0,Math.PI*2,true);
+				ctx.moveTo(150,150);
+				ctx.lineTo(150,170);
+				ctx.lineTo(135,165);
+				ctx.moveTo(150,170);
+				ctx.lineTo(165,165);
+				ctx.moveTo(150,170);
+				ctx.lineTo(150,190);
+				ctx.lineTo(135,205);
+				ctx.moveTo(150,190);
+				ctx.lineTo(165,205);
+				ctx.stroke();
+			}
+		}
+
+
+
+	</script>
+</body>
+</html>
