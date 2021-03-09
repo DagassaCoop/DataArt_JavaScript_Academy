@@ -13,15 +13,15 @@
   &__content {
     background-color: #ffffff;
     border-radius: 10px;
-    position: absolute;
+    position: sticky;
     display: flex;
-    top: calc(100vh - 76vh);
-    right: 0;
+    top: 50px;
     height: 200px;
     width: calc(100vw - 80vw);
     padding: 30px;
     flex-flow: wrap;
     font-size: 16px;
+    margin: 50px 50px 18px;
 
     &-label {
       text-align: center;
@@ -49,5 +49,11 @@
       cursor: pointer;
     }
 
+  }
+}
+
+@media (max-width: 1020px) {
+  .aside {
+    display: none;
   }
 }

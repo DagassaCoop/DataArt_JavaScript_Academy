@@ -79,22 +79,32 @@
         <button class="aside__content-button">Call me</button>
       </div>
     </aside>
+    <section class="blog">
+      <article class="blog__item">
+        <img class="blog__item-img" src="./src/img/top-slide.jpg" alt="img">
+        <div class="blog__item-content">
+          <h3 class="blog__item-title">Lorem ipsum dolor sit amet</h3>
+          <p class="blog__item-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+      </article>
+      <article class="blog__item">
+        <img class="blog__item-img" src="./src/img/top-slide.jpg" alt="img">
+        <div class="blog__item-content">
+          <h3 class="blog__item-title">Lorem ipsum dolor sit amet</h3>
+          <p class="blog__item-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+      </article>
+      <article class="blog__item">
+        <img class="blog__item-img" src="./src/img/top-slide.jpg" alt="img">
+        <div class="blog__item-content">
+          <h3 class="blog__item-title">Lorem ipsum dolor sit amet</h3>
+          <p class="blog__item-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+      </article>
+    </section>
   </main>
   <footer class="Footer">
     <div class="Footer__copy">@JS Academy 2021</div>
   </footer>
-  <script>
-    var aside = document.getElementById('aside__content')
-    window.addEventListener('scroll', function () {
-      var st = document.documentElement.scrollTop
-      if (st > 550) {
-        aside.style.position = "fixed";
-        aside.style.right = "10%";
-      }else{
-        aside.style.position = "absolute";
-        aside.style.right = "0";
-      }
-    })
-  </script>
 </body>
 </html>

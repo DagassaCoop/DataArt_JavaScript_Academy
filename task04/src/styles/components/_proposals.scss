@@ -1,5 +1,6 @@
 .Proposals {
   padding-top: 50px;
+  margin-bottom: 20px;
 
   &__item {
     height: 150px;
@@ -43,6 +44,22 @@
     }
     & div {
       direction: ltr;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .Proposals {
+    &__item {
+      flex-wrap: wrap;
+      height: auto;
+      &-img {
+        width: 100%;
+        margin: 0 0 10px !important;
+      }
+      &-content {
+        width: 100%;
+      }
     }
   }
 }

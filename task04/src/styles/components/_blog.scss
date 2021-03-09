@@ -1,0 +1,38 @@
+.blog {
+  display: inline-flex;
+  flex-flow: wrap;
+  width: 100%;
+
+  &__item {
+    width: 30%;
+    margin: 1.5%;
+
+    &-img {
+      width: 100%;
+      height: auto;
+      margin-bottom: -5px;
+    }
+
+    &-content {
+      background-color: #ffffff;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    &-title {
+      margin: 10px;
+      font-size: 16px;
+    }
+
+    &-text {
+
+    }
+
+  }
+}
+
+@media (max-width: 920px) {
+  .blog {
+    display: none;
+  }
+}
