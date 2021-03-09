@@ -1,0 +1,16 @@
+.Slider {
+  display: flex;
+  margin-top: 30px;
+  flex-flow: wrap;
+  &__item {
+    width: 15%;
+    margin: 5% auto;
+    min-height: 100px;
+    //&-first {
+    //  margin-left: 0;
+    //}
+    //&-last {
+    //  margin-right: 0;
+    //}
+  }
+}

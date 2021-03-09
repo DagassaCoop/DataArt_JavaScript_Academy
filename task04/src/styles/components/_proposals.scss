@@ -1,0 +1,48 @@
+.Proposals {
+  padding-top: 50px;
+
+  &__item {
+    height: 150px;
+    margin-bottom: 20px;
+    color: $black;
+    background: $white;
+    padding: 20px;
+    display: flex;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__item-img {
+    height: 100%;
+    width: 150px;
+    min-width: 150px;
+    float: left;
+    margin-right: 30px;
+  }
+
+  &__item-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+    max-height: 30px;
+    overflow: hidden;
+  }
+
+  &__item-text {
+    font-size: 14px;
+    max-height: 50px;
+    overflow: hidden;
+  }
+
+  &__item--rigth-sided {
+    direction: rtl;
+    & img {
+      margin: 0 0 0 30px;
+    }
+    & div {
+      direction: ltr;
+    }
+  }
+}
