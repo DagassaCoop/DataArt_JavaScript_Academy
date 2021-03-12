@@ -1,0 +1,10 @@
+.Content {
+  width: 70%;
+  padding-top: 50px;
+}
+
+@media (max-width: $breakpoint-l) {
+  .Content {
+    width: 100%;
+  }
+}
