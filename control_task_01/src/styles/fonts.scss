@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Roboto;
+  src: url('https://fonts.googleapis.com/css2?family=Roboto');
+}
+
+@font-face {
+  font-family: Lato;
+  src: url("https://fonts.googleapis.com/css2?family=Lato");
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 30px;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: Lato, sans-serif;
+}
