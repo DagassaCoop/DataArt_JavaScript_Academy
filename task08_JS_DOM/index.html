@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/styles/style.css">
+</head>
+<body>
+<header class="header">
+    <div class="header__container container">
+        <h1 class="header__title">TODO LIST</h1>
+        <div class="header__input-box">
+            <input id="input" class="header__input" type="text" placeholder="New link in TODO">
+            <button data-action="Add new Acticle" id="inputButton" class="header__input-button">Add new</button>
+        </div>
+    </div>
+</header>
+<main class="main">
+    <div id="mainList" class="main__container container">
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer__container container">
+        <button id="show" class="footer__show" data-action="Show result">Show result</button>
+        <div id="showResultBox" class="footer__result-box">
+            <table id="ResultTable" class="footer__result-table">
+
+            </table>
+            <button id="hide" class="footer__hide" data-action="Hide results">Hide</button>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript" src="src/scripts/main.js"></script>
+</body>
+</html>
