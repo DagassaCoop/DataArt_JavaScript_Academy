@@ -1,0 +1,12 @@
+.button-box {
+  width: 80%;
+  margin: auto;
+  &__title {
+    text-align: center;
+  }
+  &__title-item {
+    margin: 5px;
+    height: 30px;
+    padding: 0 15px;
+  }
+}
