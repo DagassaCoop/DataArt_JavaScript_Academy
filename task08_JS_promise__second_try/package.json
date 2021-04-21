@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "babel-polyfill": "^6.26.0"
-  },
-  "browserslist": [
-    "last 1 Chrome version"
-  ]
-}
-

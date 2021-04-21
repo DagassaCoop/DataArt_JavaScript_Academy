@@ -1,0 +1,35 @@
+.content-screen{
+  width: 40%;
+  max-height: 100vh;
+  overflow: auto;
+  &__title-box{
+    margin:40px 0;
+    text-align: center;
+  }
+  &__title{
+    font-size: 36px;
+    line-height: 42px;
+  }
+  &__author-name{
+    font-size: 16px;
+    line-height: 19px;
+    color: #5f6368;
+  }
+  &__main-info-box{
+    padding-left: 20px;
+    & p{
+      font-size: 21px;
+      line-height: 24px;
+      margin: 20px 0;
+    }
+  }
+  &__button-add{
+    margin-left: 20px;
+    height: 40px;
+    width: 200px;
+    font-size: 18px;
+    line-height: 21px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+  }
+}

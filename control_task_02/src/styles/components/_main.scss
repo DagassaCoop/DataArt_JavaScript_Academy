@@ -1,0 +1,10 @@
+.main {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  & > div {
+    border: 1px solid #000000;
+  }
+}
+

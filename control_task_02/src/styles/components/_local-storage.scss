@@ -1,0 +1,39 @@
+.local-storage{
+  width: 30%;
+  & > div {
+    border: 1px solid #000000;
+  }
+  &__header{
+    display: flex;
+    flex-wrap: wrap;
+    height: 100px;
+    & h2{
+      text-align: center;
+      width: 100%;
+      font-size: 32px;
+      line-height: 38px;
+      margin: 10px 0;
+    }
+    &-info{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      & :first-child{
+        margin-left: 0;
+      }
+      & :last-child{
+        margin-right: 0;
+      }
+      & p{
+        margin: 0 10px;
+        width: auto;
+      }
+    }
+  }
+  &__content{
+    height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}

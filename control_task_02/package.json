@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "normalize.css": "^8.0.1"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ],
+  "devDependencies": {
+    "sass": "^1.32.10"
+  }
+}
