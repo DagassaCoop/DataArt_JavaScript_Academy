@@ -1,8 +1,12 @@
 .content-screen{
   width: 40%;
   max-height: 100vh;
-  overflow: auto;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
   &__title-box{
+    width: 100%;
     margin:40px 0;
     text-align: center;
   }
@@ -15,8 +19,19 @@
     line-height: 19px;
     color: #5f6368;
   }
+
+  &__book-cover-box{
+    width: 50%;
+    padding: 20px;
+    & img{
+      height: auto;
+      width: 100%;
+    }
+  }
+
   &__main-info-box{
     padding-left: 20px;
+    width: 50%;
     & p{
       font-size: 21px;
       line-height: 24px;
@@ -24,12 +39,11 @@
     }
   }
   &__button-add{
-    margin-left: 20px;
+    margin: 40px auto;
     height: 40px;
     width: 200px;
     font-size: 18px;
     line-height: 21px;
-    border-radius: 10px;
-    margin-bottom: 40px;
+    border-radius: 20px;
   }
 }

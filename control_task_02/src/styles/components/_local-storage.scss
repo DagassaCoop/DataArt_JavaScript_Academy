@@ -1,7 +1,9 @@
 .local-storage{
   width: 30%;
+  background-color: $main-color;
+
   & > div {
-    border: 1px solid #000000;
+    border: 1px solid $border-color;
   }
   &__header{
     display: flex;
@@ -35,5 +37,54 @@
     max-height: calc(100vh - 100px);
     overflow-x: hidden;
     overflow-y: auto;
+  }
+  &__article{
+    height: 150px;
+    max-height: 180px;
+    border: 1px solid #000000;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    & *{
+      font-size: 18px;
+      line-height: 21px;
+    }
+    &-info{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      text-align: center;
+      margin: 0 20px 5px;
+    }
+    &-title{
+      width: 100%;
+      margin: 10px 0;
+      font-size: 21px;
+      line-height: 24px;
+      font-weight: 600;
+    }
+    &-author-name{
+      max-width: 70%;
+    }
+    &-language{
+      width: 30%;
+    }
+    &-status{
+      margin: 0 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      &-switch{
+        margin: 0;
+      }
+    }
+    &-button-remove{
+      height: 40px;
+      border-radius: 20px;
+      padding: 0 15px;
+    }
   }
 }

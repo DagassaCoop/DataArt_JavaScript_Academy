@@ -103,8 +103,6 @@ export class App{
                     <div class="local-storage__article-status" id="localStorageArticleStatus">
                         ${switchReadingNowHTML}
                         ${switchReadHTML}
-                    </div>
-                    <div class="local-storage__article-action">
                         <button id="localStorageArticleButtonRem" class="local-storage__article-button-remove">Remove from Lib</button>
                     </div>
                 </article>
@@ -165,9 +163,10 @@ export class App{
             if (switchBox.childNodes[i].nodeName ==='#text'){
                 continue
             }
-            if (switchBox.childNodes[i].dataset.target!==thisSwitchTarget){
-                var anotherSwitchBox = switchBox.childNodes[i]
-
+            if (switchBox.childNodes[i].getAttribute('class')==='local-storage__article-status-switch'){
+                if (switchBox.childNodes[i].dataset.target!==thisSwitchTarget){
+                    var anotherSwitchBox = switchBox.childNodes[i]
+                }
             }
         }
         for (let i = 0;i< anotherSwitchBox.childNodes.length;i++){
@@ -261,11 +260,20 @@ export class App{
                 has_fulltext = 'Not full text'
             }
 
+            let img = new Image()
+            img.src = './src/img/book-cover.jpg'
+            img.alt = 'book-cover'
+
             this.contentScreen.innerHTML =
                 `
                 <div class="content-screen__title-box">
                     <h2 class="content-screen__title">${thisBook.title}</h2>
                     <p class="content-screen__author-name">${thisBook.author_name}</p>
+                </div>
+                <div class="content-screen__book-cover-box">
+<!--                <img src="src/img/book-cover2.jpg" alt="book-cover">-->
+<!--                <img src="../img/book-cover2.jpg" alt="book-cover">-->
+                <img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" alt="book-cover">
                 </div>
                 <div class="content-screen__main-info-box">
                     <p><b>First publish year:</b> ${thisBook.first_publish_year}</p>
@@ -274,8 +282,8 @@ export class App{
                     <p><b>City:</b> ${thisBook.publish_place}</p>
                     <p><b>Status text:</b> ${has_fulltext}</p>
                     <p><b>All publish years:</b> ${thisBook.publish_year}</p>
+                    <button class="content-screen__button-add" id="contentScreenButtonAdd">Add to your library</button>
                 </div>
-                <button class="content-screen__button-add" id="contentScreenButtonAdd">Add to your library</button>
                 `
         })
 
