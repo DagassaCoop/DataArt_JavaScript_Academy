@@ -308,6 +308,8 @@ export class App{
                 alert("It's last page, you can't go next!")
                 return
             }
+
+            this.preBook = 0
             this.pageNum += 1
             this.api.getApi(this.quarry,this.pageNum).then(page=>{
                 this.parseData(page)
@@ -320,6 +322,7 @@ export class App{
                 return
             }
 
+            this.preBook = 0
             this.pageNum -= 1
             this.api.getApi(this.quarry,this.pageNum).then(page=>{
                 this.parseData(page)
