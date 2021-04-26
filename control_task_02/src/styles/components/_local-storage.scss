@@ -8,7 +8,7 @@
   &__header{
     display: flex;
     flex-wrap: wrap;
-    height: 100px;
+    height: 150px;
     & h2{
       text-align: center;
       width: 100%;
@@ -31,9 +31,76 @@
         width: auto;
       }
     }
+    &-filter{
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: baseline;
+      margin-left: 80px;
+      
+      &-content{
+        position: relative;
+      }
+      
+      &-title{
+        margin-right: 20px;
+      }
+
+      &-text{
+
+        margin-right: 5px;
+        &-box{
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          width: 180px;
+        }
+      }
+      &-text:hover{
+        color: $hover-color;
+      }
+
+      &-underground{
+        display: none;
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 150%;
+        border: 1px solid $border-color;
+        background-color: $main-color;
+        padding: 10px;
+        & li{
+          position: relative;
+          text-align: center;
+          margin-bottom: 5px;
+          padding-bottom: 5px;
+          cursor: pointer;
+        }
+        & li:hover{
+          color: $hover-color;
+        }
+        & li:after{
+          content: '';
+          height: 1px;
+          position: absolute;
+          bottom: 0;
+          left: 5%;
+          width: 90%;
+          background-color: $border-color;
+        }
+        & li:last-child{
+          margin: 0;
+          padding: 0;
+        }
+        & li:last-child:after {
+          content: none;
+        }
+      }
+    }
   }
   &__content{
-    height: calc(100vh - 100px);
+    height: calc(100vh - 150px);
     max-height: calc(100vh - 100px);
     overflow-x: hidden;
     overflow-y: auto;

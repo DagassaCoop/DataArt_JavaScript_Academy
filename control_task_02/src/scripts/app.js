@@ -71,7 +71,7 @@ export class App{
                 }
                 const item = JSON.parse(localStorage.getItem(key))
                 let itemStatus = ''
-                if (item.status === 'Reading Now'){
+                if (item.status === 'Reading now'){
                     itemStatus = 'checked="true"'
                     booksReadingNowValue += 1
                 }
@@ -92,7 +92,7 @@ export class App{
                             <input type="checkbox" class="local-storage__article-input" id="switchRead" ${itemStatus}>
                         </label>
                 `
-                // console.log(item)
+
                 const itemHTML = `
                 <article id="${item.id}" class="local-storage__article">
                     <div class="local-storage__article-info">
@@ -112,6 +112,7 @@ export class App{
             this.localStorageContentDiv.innerHTML = booksContentDivHTML
             booksReadingNow.innerHTML = 'Reading now: ' + booksReadingNowValue
             booksRead.innerHTML = 'Read: ' + booksReadValue
+            document.getElementById('localStorageHeaderFilterText').innerText = 'All books'
         }else{
             this.localStorageContentDiv.innerHTML = booksContentDivHTML
             booksReadingNow.innerHTML = 'Reading now: ' + booksReadingNowValue
@@ -129,6 +130,7 @@ export class App{
         }
         console.log(localStorageList)
     }
+
     checkItemToLocalStorage(){
         for(let key in localStorage){
             if (!localStorage.hasOwnProperty(key)){
@@ -184,7 +186,7 @@ export class App{
             var itemStatus = 'InLib'
         }else{
             if (thisSwitch.getAttribute('id') ==='switchReadingNow'){
-                var itemStatus = 'Reading Now'
+                var itemStatus = 'Reading now'
             }
             if (thisSwitch.getAttribute('id') ==='switchRead'){
                 var itemStatus = 'Read'
@@ -195,6 +197,65 @@ export class App{
         localStorage.setItem(itemId,JSON.stringify(item))
         this.renderLocalStorageInfo()
     }
+
+    sortLocalStorage(status){
+        const trueArray = []
+        const falseArray = []
+
+        if (localStorage.length !== 0){
+            for (let key in localStorage){
+                if (!localStorage.hasOwnProperty(key)){
+                    continue
+                }
+                if (JSON.parse(localStorage.getItem(key)).status === status){
+                    trueArray.push(JSON.parse(localStorage.getItem(key)))
+                }else{
+                    falseArray.push(JSON.parse(localStorage.getItem(key)))
+                }
+            }
+        }
+        return trueArray.concat(falseArray)
+    }
+
+    renderLocalStorageArticle(item){
+        let itemStatus = ''
+        if (item.status === 'Reading now'){
+            itemStatus = 'checked="true"'
+        }
+        const switchReadingNowHTML = `
+                        <label class="local-storage__article-status-switch" data-target="switchReadingNow">
+                            Reading now
+                            <input type="checkbox" class="local-storage__article-input" id="switchReadingNow" ${itemStatus}>
+                        </label>
+                `
+        itemStatus = ''
+        if (item.status === 'Read'){
+            itemStatus = 'checked="true"'
+        }
+        const switchReadHTML = `
+                        <label class="local-storage__article-status-switch" data-target="switchRead" >
+                            Read
+                            <input type="checkbox" class="local-storage__article-input" id="switchRead" ${itemStatus}>
+                        </label>
+                `
+
+        const itemHTML = `
+                <article id="${item.id}" class="local-storage__article">
+                    <div class="local-storage__article-info">
+                        <div class="local-storage__article-title">Title: ${item.title}</div>
+                        <div class="local-storage__article-author-name">Author: ${item.author_name}</div>
+                        <div class="local-storage__article-language">lang: ${item.language}</div>
+                    </div>
+                    <div class="local-storage__article-status" id="localStorageArticleStatus">
+                        ${switchReadingNowHTML}
+                        ${switchReadHTML}
+                        <button id="localStorageArticleButtonRem" class="local-storage__article-button-remove">Remove from Lib</button>
+                    </div>
+                </article>
+                `
+        return itemHTML
+    }
+
 
     init(){
         this.renderLocalStorageInfo()
@@ -214,9 +275,6 @@ export class App{
                 this.renderLocalStorageInfo()
             }
         })
-
-
-
 
         // Не пойму в чем дело, когда меняю listener на просто this.goButtonEvent, перестает работать
         this.searchButton.addEventListener('click',()=>{
@@ -251,7 +309,6 @@ export class App{
             }
 
             this.preBook = thisBook
-            // console.log(thisBook)
             targetDiv.classList.add('selected')
             let has_fulltext
             if(thisBook.has_fulltext){
@@ -271,8 +328,6 @@ export class App{
                     <p class="content-screen__author-name">${thisBook.author_name}</p>
                 </div>
                 <div class="content-screen__book-cover-box">
-<!--                <img src="src/img/book-cover2.jpg" alt="book-cover">-->
-<!--                <img src="../img/book-cover2.jpg" alt="book-cover">-->
                 <img src="https://edit.org/images/cat/book-covers-big-2019101610.jpg" alt="book-cover">
                 </div>
                 <div class="content-screen__main-info-box">
@@ -330,6 +385,37 @@ export class App{
 
         })
 
+        document.getElementById('filterActiveZone').addEventListener('click',(e)=>{
+            const img = document.getElementById('filterButton')
+            const underground = document.getElementById('filterUnderground')
+            if (underground.style.display !== 'block'){
+                underground.style.display = 'block'
+                img.src = '/filter_up.fa39830b.png'
+            }else{
+                underground.style.display = 'none'
+                img.src = '/filter_down.7a9beee6.png'
+            }
+        })
+
+        document.getElementById('filterUnderground').addEventListener('click',(e)=>{
+            if (e.target.nodeName === 'LI'){
+                const targetDiv = e.target
+                let status = targetDiv.dataset.filter
+                if (status === 'InLib'){
+                    status = 'All'
+                }
+
+                document.getElementById('filterUnderground').style.display = 'none'
+                document.getElementById('filterButton').src = '/filter_down.7a9beee6.png'
+                document.getElementById('localStorageHeaderFilterText').innerText = status + ' books'
+
+                const resultSort = this.sortLocalStorage(status)
+                const newLocalStorageContent = resultSort.reduce((acc,item)=>{
+                    return acc + this.renderLocalStorageArticle(item)
+                },'')
+                this.localStorageContentDiv.innerHTML = newLocalStorageContent
+            }
+        })
 
     }
 

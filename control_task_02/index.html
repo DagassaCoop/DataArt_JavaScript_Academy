@@ -44,6 +44,20 @@
                 <p id="localStorageReadingNow">Reading now: </p>
                 <p id="localStorageRead">Read: </p>
             </div>
+            <div class="local-storage__header-filter">
+                <p class="local-storage__header-filter-title">Filter: </p>
+                <div class="local-storage__header-filter-content">
+                    <div class="local-storage__header-filter-text-box" id="filterActiveZone">
+                        <p class="local-storage__header-filter-text" id="localStorageHeaderFilterText">All books</p>
+                        <img class="local-storage__header-filter-text-button" id="filterButton" src="./src/img/filter_down.png" alt="">
+                    </div>
+                    <ul class="local-storage__header-filter-underground" id="filterUnderground">
+                        <li id="filterAll" data-filter="InLib">All books</li>
+                        <li id="filterReading" data-filter="Reading now">Reading now books</li>
+                        <li id="filterRead" data-filter="Read">Read books</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="local-storage__content" id="localStorageContent"></div>
     </div>
