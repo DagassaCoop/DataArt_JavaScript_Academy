@@ -1,0 +1,82 @@
+.main-section {
+  width: 80%;
+  margin: auto;
+  position: relative;
+
+  &__title {
+    text-align: center;
+    width: 100%;
+  }
+
+  &__content-box {
+    position: relative;
+    display: flex;
+  }
+
+  &__content {
+    position: relative;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    &-list {
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      height: 500px;
+      overflow-y: auto;
+      border: 1px solid #000;
+      border-radius: 10px;
+      &-item{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        height: 150px;
+        border: 1px solid #000;
+        border-radius: 10px;
+        margin: 2px;
+        padding: 0 10px;
+        & p {
+          width: auto;
+          max-height: 50px;
+          margin: 15px 15px 0px;
+        }
+        &-id{
+
+        }
+        &-name{
+
+        }
+        &-email{
+
+        }
+        &-body{
+          width: 100% !important;
+          max-height: 50px!important;
+          overflow-y: auto;
+          border: 1px solid #000000;
+          border-radius: 10px;
+          padding: 10px;
+          margin: 0!important;
+        }
+
+      }
+    }
+  }
+
+  &__settings {
+    position: relative;
+    width: 30%;
+    &-param{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    & button{
+      width: 100px;
+      height: 30px;
+      margin: 15px calc((100% - 100px)/2);
+    }
+
+  }
+}
